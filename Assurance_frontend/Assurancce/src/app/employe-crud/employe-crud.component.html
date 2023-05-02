@@ -1,0 +1,99 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+
+
+
+<div class="container mt-8">
+  <div class="card">
+    <h1>Enregistrement du personnel</h1>
+
+<form>
+    <div class="form-group">
+      <label>Nom</label>
+      <input type="text"  [(ngModel)]="Nom" [ngModelOptions]="{standalone: true}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Entre votre nom">
+      <small id="emailHelp" class="form-text text-muted">Vos information resterons securise</small>
+    </div>
+    <div class="form-group">
+      <label>Prenom</label>
+      <input type="text" [(ngModel)]="Prenom" [ngModelOptions]="{standalone: true}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Entre votre prenom">
+      <small id="emailHelp" class="form-text text-muted">Vos information resterons securise</small>
+    </div>
+    <div class="form-group">
+      <label>Age</label>
+      <input type="number" [(ngModel)]="Age" [ngModelOptions]="{standalone: true}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Entre votre Age">
+      <small id="emailHelp" class="form-text text-muted">Vos information resterons securise</small>
+    </div>
+    <div class="form-group">
+      <label>Date</label>
+      <input type="date" [(ngModel)]="Date" [ngModelOptions]="{standalone: true}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+      <small id="emailHelp" class="form-text text-muted">Vos information resterons securise</small>
+    </div>
+    <button type="submit" (click) = "Register()" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+</div>
+
+
+<div class="container mt-8">
+  <div class="card">
+    <h1>Affichage des employees</h1>
+
+<table class="table" >
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th scope="col">Prenom</th>
+      <th scope="col">Age</th>
+      <th scope="col">Date</th>
+      <th scope="col">Option</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let Employe of EmployeList">
+      <td>{{Employe.Nom | uppercase}}</td>
+      <td>{{Employe.Prenom}}</td>
+      <td>{{Employe.Age}}</td>
+      <td>{{Employe.Date}}</td>
+      <td>
+      <button type="button" class="btn btn-success" (click)= "EditEmploye(Employe)" >Modifier</button>
+      <button type="button" class="btn btn-danger" (click)= "DeletEmploye()" >Supprimer</button>
+    </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
